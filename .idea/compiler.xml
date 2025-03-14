@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for maven_lib" enabled="true">
+        <sourceOutputDir name="WEB-INF/lib/generated-sources/annotations" />
+        <sourceTestOutputDir name="WEB-INF/lib/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="maven_lib" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

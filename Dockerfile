@@ -1,25 +1,17 @@
-# Usa uma imagem base com Java e Maven
-FROM maven:3.8.1-openjdk-11 AS build
+# Usa uma imagem com Maven e Java 11 já instalados
+FROM maven:3.8.5-openjdk-11
 
-# Define o diretório de trabalho
+# Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia os arquivos do projeto
+# Copia o código do projeto para dentro do container
 COPY . .
 
-# Compila o projeto
+# Executa o build do projeto
 RUN mvn clean package
 
-# Usa uma imagem leve para rodar o WAR
-FROM openjdk:11-jdk
-
-WORKDIR /app
-
-# Copia o arquivo WAR gerado
-COPY --from=build /app/target/maven_lib-1.0.war app.war
-
-# Expõe a porta 8080
+# Expõe a porta usada pelo Jetty
 EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["java", "-jar", "app.war"]
+CMD ["mvn", "jetty:run"]

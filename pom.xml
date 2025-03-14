@@ -70,11 +70,15 @@
             <artifactId>jetty-maven-plugin</artifactId>
             <version>9.4.46.v20220331</version>
             <configuration>
+                <httpConnector>
+                    <port>${env.PORT}</port>
+                </httpConnector>
                 <webApp>
-                    <contextPath>/meuApp</contextPath>
+                    <contextPath>/</contextPath>
                 </webApp>
             </configuration>
         </plugin>
+
 
 
     </plugins>
